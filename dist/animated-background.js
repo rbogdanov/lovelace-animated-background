@@ -151,10 +151,12 @@ function currentConfig() {
     if (Animated_Config.entity || Animated_Config.default_url) {
       return_config = Animated_Config;
     }
+
+      STATUS_MESSAGE("Opacity is " + Animated_Config.opacity + " - 0." + Opacity, true);
     
     if (Animated_Config.opacity > 0) {
       Opacity = Animated_Config.opacity;
-      STATUS_MESSAGE("Opacity is 0." + Opacity, true);
+
     }
 
 
