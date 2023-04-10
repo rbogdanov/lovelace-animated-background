@@ -18,7 +18,7 @@ animated_background:
     - Villhellm
   # This entity is just an example, use whatever entity you would like
   entity: "weather.home"
-
+```
 
 ## Cloning from [Villhellm](https://github.com/Villhellm/lovelace-animated-background)
 May he rest in peace. :(
