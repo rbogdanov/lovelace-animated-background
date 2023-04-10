@@ -145,9 +145,17 @@ function currentConfig() {
   if (current_view_path == undefined) {
     return return_config;
   }
+  
   if (Animated_Config) {
     if (Animated_Config.entity || Animated_Config.default_url) {
       return_config = Animated_Config;
+    }
+    
+    if (Animated_Config.opacity <= 1 || Animated_Config.opacity >= 0) {
+      return_config = Animated_Config.opacity;
+    } else {
+      Animated_Config.opacity =1;
+      return_config = Animated_config;
     }
 
     if (Animated_Config.views) {
@@ -498,11 +506,9 @@ function renderBackgroundHTML() {
       
       var css_transparent = document.createElement ("style");
       css_transparent.innerHTML = `
-      
         hui-masonry-view{
-    	  opacity: 0.8;
+    	  opacity: ` + current_config.opacity + `;
         }
-    	  ha-card-box-shadow: 1px 1px 5px 0px rgb (12, 12, 14);        
       `;
 
       var div = document.createElement("div");
