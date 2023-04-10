@@ -153,9 +153,6 @@ function currentConfig() {
     
     if (Animated_Config.opacity <= 1 || Animated_Config.opacity >= 0) {
       return_config = Animated_Config.opacity;
-    } else {
-      Animated_Config.opacity =1;
-      return_config = Animated_config;
     }
 
     if (Animated_Config.views) {
