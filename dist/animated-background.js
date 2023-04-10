@@ -152,13 +152,6 @@ function currentConfig() {
       return_config = Animated_Config;
     }
 
-      STATUS_MESSAGE("Opacity is " + Animated_Config.opacity + " - 0." + Opacity, true);
-    
-    if (Animated_Config.opacity > 0.0) {
-      Opacity = Animated_Config.opacity;
-
-    }
-
 
     if (Animated_Config.views) {
       Animated_Config.views.forEach(view => {
@@ -505,7 +498,12 @@ function renderBackgroundHTML() {
           min-height: 100vh;
           z-index: -10;
       }`;
-      
+
+      STATUS_MESSAGE("Opacity is " + current_config.opacity + " - 0." + Opacity, true);
+      if (current_config.opacity > 0.0) {
+        Opacity = current_config.opacity;
+      }
+
       var css_transparent = document.createElement ("style");
       css_transparent.innerHTML = `
         hui-masonry-view{
