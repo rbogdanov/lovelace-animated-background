@@ -155,7 +155,7 @@ function currentConfig() {
     if (Animated_Config.opacity > 0) {
       Opacity = Animated_Config.opacity;
     }
-      STATUS_MESSAGE("Opacity is " + Animated_Config.opacity, true);
+      STATUS_MESSAGE("Opacity is " + Opacity, true);
 
     if (Animated_Config.views) {
       Animated_Config.views.forEach(view => {
