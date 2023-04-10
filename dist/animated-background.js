@@ -499,10 +499,12 @@ function renderBackgroundHTML() {
           z-index: -10;
       }`;
 
-      STATUS_MESSAGE("Opacity is " + current_config.opacity + " - 0." + Opacity, true);
-      if (current_config.opacity > 0.0) {
+
+      if (parseInt(current_config.opacity) > 0.0) {
         Opacity = current_config.opacity;
       }
+
+      STATUS_MESSAGE("Opacity is " + current_config.opacity + " - 0." + Opacity, true);
 
       var css_transparent = document.createElement ("style");
       css_transparent.innerHTML = `
