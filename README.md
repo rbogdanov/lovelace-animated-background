@@ -8,6 +8,18 @@ Animated backgrounds for lovelace with transparent cards style
 - Fixed errors in new version Home Assistant. (Thanks [dreimer1986/lovelace-animated-background](https://github.com/dreimer1986/lovelace-animated-background.git)
 - Added transparent mode for cards.
 
+- `opacity:` - Number for transparent card level ( 0 - 99 ).
+example:
+```yaml
+animated_background:
+  default_url: "https://cdn.flixel.com/flixel/ypy8bw9fgw1zv2b4htp2.hd.mp4"
+  opacity: 80
+  included_users:
+    - Villhellm
+  # This entity is just an example, use whatever entity you would like
+  entity: "weather.home"
+
+
 ## Cloning from [Villhellm](https://github.com/Villhellm/lovelace-animated-background)
 May he rest in peace. :(
 
