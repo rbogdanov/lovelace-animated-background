@@ -15,7 +15,7 @@ var Loaded = false;
 var View_Loaded = false;
 var Meme_Remover = null;
 var Meme_Count = 0;
-var Opacity = 1;
+var Opacity = 99;
 
 //state tracking variables
 let Previous_State;
@@ -154,7 +154,7 @@ function currentConfig() {
     
     if (Animated_Config.opacity > 0) {
       Opacity = Animated_Config.opacity;
-      STATUS_MESSAGE("Opacity is " + Opacity, true);
+      STATUS_MESSAGE("Opacity is 0." + Opacity, true);
     }
 
 
@@ -507,7 +507,7 @@ function renderBackgroundHTML() {
       var css_transparent = document.createElement ("style");
       css_transparent.innerHTML = `
         hui-masonry-view{
-    	  opacity: ` + Opacity + `;
+    	  opacity: 0.` + Opacity + `;
         }
       `;
 
