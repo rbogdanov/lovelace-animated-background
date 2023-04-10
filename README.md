@@ -1,18 +1,20 @@
-# ADD CHAGES FOR HOMEASSISTANT VERSION 2023.04.0
+# Animated backgrounds for lovelace
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 
-```Code
-Root = Root && Root.querySelector("app-drawer-layout partial-panel-resolver, ha-drawer partial-panel-resolver");
-```
+Animated backgrounds for lovelace with transparent cards style
 
-Added transparent mode for cards.
+## ADD CHAGES FOR HOMEASSISTANT VERSION 2023.04.0
 
-### Cloning from [Villhellm](https://github.com/Villhellm/lovelace-animated-background)
-May he rest in peace.
+- Fixed errors in new version Home Assistant. (Thanks [dreimer1986/lovelace-animated-background](https://github.com/dreimer1986/lovelace-animated-background.git)
+- Added transparent mode for cards.
 
-# MAJOR BREAKING CHANGE IN v0.5.0+
+## Cloning from [Villhellm](https://github.com/Villhellm/lovelace-animated-background)
+May he rest in peace. :(
+
+## MAJOR BREAKING CHANGE IN v0.5.0+
 YOUR ANIMATED BACKGROUND CONFIGURATION WILL NEED TO BE UPDATED, follow the new configuration guidelines below.
 
-# Animated Lovelace Background
+## Animated Lovelace Background
 
 This module is for [Lovelace](https://www.home-assistant.io/lovelace) on [Home Assistant](https://www.home-assistant.io/)
 
