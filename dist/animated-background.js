@@ -520,6 +520,10 @@ function renderBackgroundHTML() {
     	    --app-header-background-color: "";
     	    --primary-color: "";
         }
+        
+        .header {
+    	    background-color: "";
+        }
       `;
 
       var div = document.createElement("div");
