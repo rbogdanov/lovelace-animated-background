@@ -530,7 +530,7 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(style);
       Root.shadowRoot.appendChild(div);
       View.insertBefore(transparent_body,View.firstChild);
-      Hui.insertBefore(transparent_pannel,.firstChild);
+      Hui.insertBefore(transparent_pannel,firstChild);
       Previous_Url = state_url;
     }
     else {
