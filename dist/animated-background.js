@@ -536,7 +536,9 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(style);
       Root.shadowRoot.appendChild(div);
       View.insertBefore(transparent_body,View.firstChild);
-      Pannel_tabs.insertBefore(transparent_pannel,Pannel_tabs.firstChild);
+//      Pannel_tabs.insertBefore(transparent_pannel,Pannel_tabs.getElementsByClassName("").firstChild);
+
+      Hui.getElementsByClassName("header").style.backgroundColor = "none";
       Previous_Url = state_url;
     }
     else {
