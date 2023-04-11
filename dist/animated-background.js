@@ -517,12 +517,12 @@ function renderBackgroundHTML() {
       var transparent_pannel = document.createElement ("style");
       transparent_pannel.innerHTML = `
         #tabsContainer {
-    	    --app-header-background-color: "";
-    	    --primary-color: "";
+    	    --app-header-background-color: none;
+    	    --primary-color: none;
         }
         
         .header {
-    	    background-color: "";
+    	    background-color: none;
         }
       `;
 
