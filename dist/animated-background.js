@@ -10,6 +10,7 @@ var Lovelace;
 var Animated_Config;
 var Haobj = null;
 var View;
+var Pannel_tabs;
 var Debug_Mode = false;
 var Loaded = false;
 var View_Loaded = false;
@@ -504,12 +505,18 @@ function renderBackgroundHTML() {
         Opacity = current_config.opacity;
       }
 
-      STATUS_MESSAGE("Opacity is " + current_config.opacity + " - 0." + Opacity, true);
-
-      var css_transparent = document.createElement ("style");
-      css_transparent.innerHTML = `
+      var transparent_body = document.createElement ("style");
+      transparent_body.innerHTML = `
         hui-masonry-view{
     	  opacity: 0.` + Opacity + `;
+        }
+      `;
+
+      var transparent_pannel = document.createElement ("style");
+      transparent_pannel.innerHTML = `
+        #tabsContainer {
+    	    --app-header-background-color: "";
+    	    --primary-color: "";
         }
       `;
 
@@ -522,7 +529,8 @@ function renderBackgroundHTML() {
     
       Root.shadowRoot.appendChild(style);
       Root.shadowRoot.appendChild(div);
-      View.insertBefore(css_transparent,View.firstChild);
+      View.insertBefore(transparent_body,View.firstChild);
+      Hui.insertBefore(transparent_pannel,.firstChild);
       Previous_Url = state_url;
     }
     else {
