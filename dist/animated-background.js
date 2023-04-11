@@ -9,7 +9,7 @@ var Lovelace;
 var Animated_Config;
 var Haobj = null;
 var View;
-var Pannel_tabs;
+var Panel_Holder;
 var Debug_Mode = false;
 var Loaded = false;
 var View_Loaded = false;
