@@ -66,6 +66,8 @@ function getVars() {
   Root = Root && Root.shadowRoot;
   Root = Root && Root.querySelector("hui-root");
   Hui = Root;
+  Pannel_tabs = Hui && Hui.shadowRoot;
+
   if (Root) {
     Lovelace = Root.lovelace;
     if (Lovelace) {
@@ -530,7 +532,7 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(style);
       Root.shadowRoot.appendChild(div);
       View.insertBefore(transparent_body,View.firstChild);
-      Hui.insertBefore(transparent_pannel,firstChild);
+      Pannel_tabs.insertBefore(transparent_pannel,Pannel_tabs.firstChild);
       Previous_Url = state_url;
     }
     else {
