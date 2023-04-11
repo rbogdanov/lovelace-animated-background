@@ -4,7 +4,6 @@ const Log_Prefix = "Animated Background: "
 
 //globals
 var Root;
-var Panel_Holder;
 var Hui;
 var Lovelace;
 var Animated_Config;
@@ -66,7 +65,6 @@ function getVars() {
   Root = Root && Root.shadowRoot;
   Root = Root && Root.querySelector("hui-root");
   Hui = Root;
-  Pannel_tabs = Hui && Hui.shadowRoot;
 
   if (Root) {
     Lovelace = Root.lovelace;
@@ -514,18 +512,6 @@ function renderBackgroundHTML() {
         }
       `;
 
-      var transparent_pannel = document.createElement ("style");
-      transparent_pannel.innerHTML = `
-        #tabsContainer {
-    	    --app-header-background-color: none;
-    	    --primary-color: none;
-        }
-        
-        .header {
-    	    background-color: none;
-        }
-      `;
-
       var div = document.createElement("div");
       div.id = "background-video";
       div.className = "bg-wrap";
@@ -536,9 +522,6 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(style);
       Root.shadowRoot.appendChild(div);
       View.insertBefore(transparent_body,View.firstChild);
-//      Pannel_tabs.insertBefore(transparent_pannel,Pannel_tabs.getElementsByClassName("").firstChild);
-
-      Hui.getElementsByClassName("header").style.backgroundColor = "none";
       Previous_Url = state_url;
     }
     else {
