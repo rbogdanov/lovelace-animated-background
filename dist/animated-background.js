@@ -515,16 +515,9 @@ function renderBackgroundHTML() {
         }
       `;
 
-//      var header_js = document.createElement ("script");
-      var header_js = `
-    	<script>
-	    var htm_element = document.querySelector("html");
-	    html_element.style.removeProperty ('--app-header-background-color');
-	    html_element.style.removeProperty ('--primary-color');
-	</script>
-	`;
-//      var Header = document.querySelector("home-assistant-main");
-      Header.insertAdjacentHTML('afterend',header_js);
+      var htm_element = document.querySelector("html");
+      html_element.style.removeProperty ('--app-header-background-color');
+      html_element.style.removeProperty ('--primary-color');
 
       var div = document.createElement("div");
       div.id = "background-video";
