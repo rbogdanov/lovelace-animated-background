@@ -517,7 +517,7 @@ function renderBackgroundHTML() {
 
       var header_style = document.createElement ("style");
       header_style.innerHTML = `
-	.header {
+	hui-root div .header {
 	    background-color: initial;
 	}
 	`;
