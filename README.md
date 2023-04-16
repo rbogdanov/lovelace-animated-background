@@ -3,6 +3,10 @@
 
 Animated backgrounds for lovelace with transparent cards style
 
+## Add transparent for Top Model
+
+- Added transparent for top Pannel 
+
 ## ADD CHAGES FOR HOMEASSISTANT VERSION 2023.04.0
 
 - Fixed errors in new version Home Assistant. (Thanks [dreimer1986/lovelace-animated-background](https://github.com/dreimer1986/lovelace-animated-background.git)
