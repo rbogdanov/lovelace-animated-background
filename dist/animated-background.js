@@ -5,6 +5,7 @@ const Log_Prefix = "Animated Background: "
 //globals
 var Root;
 var Hui;
+var Header;
 var Lovelace;
 var Animated_Config;
 var Haobj = null;
@@ -57,6 +58,8 @@ function getVars() {
   Root = Root && Root.querySelector("home-assistant-main");
   Root = Root && Root.shadowRoot;
   Root = Root && Root.querySelector("app-drawer-layout partial-panel-resolver, ha-drawer partial-panel-resolver");
+  Header = Root;
+  
   Root = (Root && Root.shadowRoot) || Root;
   Root = Root && Root.querySelector("ha-panel-lovelace");
   if (Root) {
@@ -518,7 +521,7 @@ function renderBackgroundHTML() {
 	    background-color: initial;
 	}
 	`;
-      Hui.insertBefore(header_style,Hui.firstChild);
+      Header.insertBefore(header_style,Header.firstChild);
 
       var div = document.createElement("div");
       div.id = "background-video";
