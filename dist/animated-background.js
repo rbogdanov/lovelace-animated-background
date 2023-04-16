@@ -327,7 +327,7 @@ function enabled() {
 function resetPannelBackground () {
     var elements = document.getElementsByClassName('header'); // get all elements
     for(var i = 0; i < elements.length; i++){
-	elements[i].style.backgroundColor = null;
+	elements[i].style.backgroundColor = 'transparent';
     }
 }
 
