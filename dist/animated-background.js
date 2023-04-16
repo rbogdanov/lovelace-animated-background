@@ -518,12 +518,11 @@ function renderBackgroundHTML() {
       var html_element = document.querySelector("html");
       html_element.style.removeProperty ('--app-header-background-color');
       
-      var ha_main = document.querySelector("home-assistant-main");
       var ha_style = `<style>
     	html {
     	    --primary-color:initial;
     	}`;
-      ha_main.insertAdjacentHTML('beforeBegin',ha_style);
+      Header.insertAdjacentHTML('beforeBegin',ha_style);
 
 
 
