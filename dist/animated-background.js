@@ -513,18 +513,19 @@ function renderBackgroundHTML() {
         hui-masonry-view {
     	  opacity: 0.` + Opacity + `;
         }
-        
-        html {
-    	  --primary-color: initial;;
-        }
       `;
 
       var html_element = document.querySelector("html");
       html_element.style.removeProperty ('--app-header-background-color');
       
-      var custom_style = document.querySelector("custom-style > style");
-      custom_style.style.removeProperty ('--primary-color');
-      
+      var ha_main = document.querySelector("home-assistant-main");
+      var ha_style = `<style>
+    	html {
+    	    --primary-color:initial;
+    	}`;
+      ha_main.insertAdjacentHTML('beforeBegin',ha_style);
+
+
 
       var div = document.createElement("div");
       div.id = "background-video";
