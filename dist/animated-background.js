@@ -327,7 +327,14 @@ function enabled() {
 function resetPannelBackground () {
     var elements = document.getElementsByClassName('header'); // get all elements
     for(var i = 0; i < elements.length; i++){
-	elements[i].style.backgroundColor = 'transparent';
+	var style = documentCreateElement ("style");
+	style.innerHTML = `
+	.header {
+	    background-color: transparent
+	};
+	`;
+	elements[i].insertBefore(transparent_body,elements[i].firstChild);
+//	elements[i].style.backgroundColor = 'transparent';
     }
 }
 
