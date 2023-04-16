@@ -513,6 +513,10 @@ function renderBackgroundHTML() {
         hui-masonry-view {
     	  opacity: 0.` + Opacity + `;
         }
+        
+        html {
+    	  --primary-color: initial;;
+        }
       `;
 
       var html_element = document.querySelector("html");
