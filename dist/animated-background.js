@@ -324,20 +324,6 @@ function enabled() {
   return temp_enabled;
 }
 
-function resetPannelBackground () {
-    var elements = document.getElementsByClassName('header'); // get all elements
-    for(var i = 0; i < elements.length; i++){
-	var style = documentCreateElement ("style");
-	style.innerHTML = `
-	.header {
-	    background-color: transparent
-	};
-	`;
-	elements[i].insertBefore(transparent_body,elements[i].firstChild);
-//	elements[i].style.backgroundColor = 'transparent';
-    }
-}
-
 
 //returns selected entity's current state if it is available
 function getEntityState(entity) {
@@ -526,6 +512,15 @@ function renderBackgroundHTML() {
         }
       `;
 
+      var header_style = documentCreateElement ("style");
+      header_style.innerHTML = `
+	.header {
+	    background-color: initial;
+	}
+	`;
+      Hui.insertBefore(header_style,Hui.firstChild);
+    }
+
       var div = document.createElement("div");
       div.id = "background-video";
       div.className = "bg-wrap";
@@ -537,7 +532,6 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(div);
       View.insertBefore(transparent_body,View.firstChild);
       Previous_Url = state_url;
-      resetPannelBackground();
     }
     else {
       if (current_config.entity || (Previous_Url != state_url)) {
