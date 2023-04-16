@@ -515,13 +515,15 @@ function renderBackgroundHTML() {
         }
       `;
 
-      var header_js = document.createElement ("script");
-      header_js.innerHTML = `
+//      var header_js = document.createElement ("script");
+      var header_js = `
+    	<script>
 	    var htm_element = document.querySelector("html");
 	    html_element.style.backgroundColor = null;
+	</script>
 	`;
 //      var Header = document.querySelector("home-assistant-main");
-      Header.insertAdjacentHTML('afterbegin',header_js);
+      Header.insertAdjacentHTML('afterend',header_js);
 
       var div = document.createElement("div");
       div.id = "background-video";
