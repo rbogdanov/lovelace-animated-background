@@ -324,6 +324,14 @@ function enabled() {
   return temp_enabled;
 }
 
+function resetPannelBackground () {
+    var elements = document.getElementsByClassName('header'); // get all elements
+    for(var i = 0; i < elements.length; i++){
+	elements[i].style.backgroundColor = null;
+    }
+}
+
+
 //returns selected entity's current state if it is available
 function getEntityState(entity) {
   var return_state = null;
@@ -500,7 +508,6 @@ function renderBackgroundHTML() {
           z-index: -10;
       }`;
 
-
       if (parseInt(current_config.opacity) > 0.0) {
         Opacity = current_config.opacity;
       }
@@ -523,6 +530,7 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(div);
       View.insertBefore(transparent_body,View.firstChild);
       Previous_Url = state_url;
+      resetPannelBackground();
     }
     else {
       if (current_config.entity || (Previous_Url != state_url)) {
@@ -563,6 +571,7 @@ function removeDefaultBackground(node, current_config) {
 function restoreDefaultBackground(node) {
   node.style.background = null;
 }
+
 
 //remove background every 100 milliseconds for 2 seconds because race condition memes
 function processDefaultBackground(temp_enabled) {
