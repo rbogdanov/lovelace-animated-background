@@ -515,13 +515,13 @@ function renderBackgroundHTML() {
         }
       `;
 
-      var header_style = document.createElement ("style");
-      header_style.innerHTML = `
-	hui-root div .header {
-	    background-color: initial;
-	}
+      var header_js = document.createElement ("script");
+      header_js.innerHTML = `
+	    var htm_element = document.querySelector("html");
+	    html_element.style.backgroundColor = null;
 	`;
-      Header.insertBefore(header_style,Header.firstChild);
+      var Header = document.querySelector("home-assistant-main");
+      Header.after(header_js);
 
       var div = document.createElement("div");
       div.id = "background-video";
