@@ -512,7 +512,7 @@ function renderBackgroundHTML() {
         }
       `;
 
-      var header_style = document.CreateElement ("style");
+      var header_style = document.createElement ("style");
       header_style.innerHTML = `
 	.header {
 	    background-color: initial;
