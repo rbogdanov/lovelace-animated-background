@@ -521,7 +521,7 @@ function renderBackgroundHTML() {
 	    html_element.style.backgroundColor = null;
 	`;
       var Header = document.querySelector("home-assistant-main");
-      Header.after(header_js);
+      Header.appendChild(html_element);
 
       var div = document.createElement("div");
       div.id = "background-video";
