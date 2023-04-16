@@ -507,7 +507,7 @@ function renderBackgroundHTML() {
 
       var transparent_body = document.createElement ("style");
       transparent_body.innerHTML = `
-        hui-masonry-view{
+        hui-masonry-view {
     	  opacity: 0.` + Opacity + `;
         }
       `;
@@ -519,7 +519,6 @@ function renderBackgroundHTML() {
 	}
 	`;
       Hui.insertBefore(header_style,Hui.firstChild);
-    }
 
       var div = document.createElement("div");
       div.id = "background-video";
