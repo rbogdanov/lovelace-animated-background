@@ -54,11 +54,11 @@ function randomIntFromInterval(min, max) { // min and max included
 //reset all DOM variables
 function getVars() {
   Root = document.querySelector("home-assistant");
+  Header = Root;
   Root = Root && Root.shadowRoot;
   Root = Root && Root.querySelector("home-assistant-main");
   Root = Root && Root.shadowRoot;
   Root = Root && Root.querySelector("app-drawer-layout partial-panel-resolver, ha-drawer partial-panel-resolver");
-  Header = Root;
   
   Root = (Root && Root.shadowRoot) || Root;
   Root = Root && Root.querySelector("ha-panel-lovelace");
@@ -520,7 +520,7 @@ function renderBackgroundHTML() {
 	    var htm_element = document.querySelector("html");
 	    html_element.style.backgroundColor = null;
 	`;
-      var Header = document.querySelector("home-assistant-main");
+//      var Header = document.querySelector("home-assistant-main");
       Header.insertAdjacentHTML('afterbegin',html_element);
 
       var div = document.createElement("div");
