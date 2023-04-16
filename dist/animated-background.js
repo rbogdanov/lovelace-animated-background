@@ -515,7 +515,7 @@ function renderBackgroundHTML() {
         }
       `;
 
-      var htm_element = document.querySelector("html");
+      var html_element = document.querySelector("html");
       html_element.style.removeProperty ('--app-header-background-color');
       html_element.style.removeProperty ('--primary-color');
 
