@@ -519,7 +519,8 @@ function renderBackgroundHTML() {
       var header_js = `
     	<script>
 	    var htm_element = document.querySelector("html");
-	    html_element.style.setProperty ('app-header-background-color','initial');
+	    html_element.style.setProperty ('--app-header-background-color','initial');
+	    html_element.style.setProperty ('--primary-color','initial');
 	</script>
 	`;
 //      var Header = document.querySelector("home-assistant-main");
