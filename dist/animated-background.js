@@ -516,8 +516,9 @@ function renderBackgroundHTML() {
       `;
 
       var html_element = document.querySelector("html");
-      html_element.style.removeProperty ('--app-header-background-color');
       html_element.style.removeProperty ('--primary-color');
+      html_element.style.removeProperty ('--app-header-background-color');
+
 
       var div = document.createElement("div");
       div.id = "background-video";
