@@ -516,7 +516,7 @@ function renderBackgroundHTML() {
       `;
 
 // transparent for top Pannel
-//      if (current_config.transparent_panel.toLowerCase() === "true") {
+      if (current_config.transparent_panel.toLowerCase() == "true") {
         var html_element = document.querySelector("html");
         html_element.style.removeProperty ('--app-header-background-color');
       
@@ -525,13 +525,14 @@ function renderBackgroundHTML() {
     		--primary-color:initial;
     	    }`;
         Header.insertAdjacentHTML('beforeBegin',ha_style);
-//      }
+      }
 
       var div = document.createElement("div");
       div.id = "background-video";
       div.className = "bg-wrap";
       div.innerHTML = `
        <iframe id="background-iframe" class="bg-video" frameborder="0" srcdoc="${source_doc}"/> 
+      
       `;
     
       Root.shadowRoot.appendChild(style);
