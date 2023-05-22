@@ -516,8 +516,8 @@ function renderBackgroundHTML() {
       `;
 
 // transparent for top Pannel
-	STATUS_MESSAGE (current_config.transparent_panel);
-      if (current_config.transparent_panel.toLowerCase() === "true") {
+      STATUS_MESSAGE (current_config.transparent_panel);
+      if (current_config.transparent_panel) {
         var html_element = document.querySelector("html");
         html_element.style.removeProperty ('--app-header-background-color');
       
