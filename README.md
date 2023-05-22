@@ -5,7 +5,15 @@ Animated backgrounds for lovelace with transparent cards style
 
 ## Add transparent for Top Model
 
-- Added transparent for top Pannel 
+- Added transparent for top Pannel
+```yaml
+animated_background:
+  ...
+  transparent_panel: true/false
+  ...
+```
+
+Sorry but now case sensitive (only lower)
 
 ## ADD CHAGES FOR HOMEASSISTANT VERSION 2023.04.0
 
