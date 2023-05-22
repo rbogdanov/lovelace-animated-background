@@ -17,7 +17,6 @@ var View_Loaded = false;
 var Meme_Remover = null;
 var Meme_Count = 0;
 var Opacity = 99;
-var transparent_panel = true;
 
 //state tracking variables
 let Previous_State;
@@ -517,7 +516,7 @@ function renderBackgroundHTML() {
       `;
 
 // transparent for top Pannel
-      if (current_config.transparent_panel.toLowerCase() === "true") {
+//      if (current_config.transparent_panel.toLowerCase() === "true") {
         var html_element = document.querySelector("html");
         html_element.style.removeProperty ('--app-header-background-color');
       
@@ -526,7 +525,7 @@ function renderBackgroundHTML() {
     		--primary-color:initial;
     	    }`;
         Header.insertAdjacentHTML('beforeBegin',ha_style);
-      }
+//      }
 
       var div = document.createElement("div");
       div.id = "background-video";
