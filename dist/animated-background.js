@@ -12,8 +12,8 @@ var Haobj = null;
 var View;
 var Panel_Holder;
 var Debug_Mode = true;
-var Loaded = true;
-var View_Loaded = true;
+var Loaded = false;
+var View_Loaded = false;
 var Meme_Remover = null;
 var Meme_Count = 0;
 var Opacity = 99;
@@ -467,7 +467,7 @@ function renderBackgroundHTML() {
           left: 50%;
           transform: translate(-50%, -50%);
         }
-
+        
         img {
           min-width: 100%;
           min-height: 100%;
@@ -492,9 +492,13 @@ function renderBackgroundHTML() {
       style.innerHTML = `
       .bg-video{
           min-width: 100vw; 
-          min-height: 100vh;
-          
+          min-height: 100vh;    
       }
+      
+      #view {
+          background: none;
+        }
+      
       .bg-wrap{
           position: fixed;
           right: 0;
