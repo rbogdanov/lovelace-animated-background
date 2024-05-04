@@ -75,6 +75,7 @@ function getVars() {
       Animated_Config = Lovelace.config.animated_background;
     }
     View = Root.shadowRoot.getElementById("view");
+    View.style.background="none";
   }
 }
 
