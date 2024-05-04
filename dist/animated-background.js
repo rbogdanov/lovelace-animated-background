@@ -532,13 +532,6 @@ function renderBackgroundHTML() {
         Header.insertAdjacentHTML('beforeBegin',ha_style);
       }
 
-      var divView = document.createElement ("script");
-      divView.innerHTML = `
-       document.getElementById("view").style.backgroundColor="none";
-
-      `;
-      
-      var div = document.createElement("div");
       div.id = "background-video";
       div.className = "bg-wrap";
       div.innerHTML = `
@@ -550,6 +543,9 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(div);
       Root.shadowRoot.appendChild(divView);
       View.insertBefore(transparent_body,View.firstChild);
+      
+      View.style.backgroundColor = "none";
+      
       Previous_Url = state_url;
     }
     else {
