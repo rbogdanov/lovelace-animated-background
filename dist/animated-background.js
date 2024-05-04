@@ -75,7 +75,6 @@ function getVars() {
       Animated_Config = Lovelace.config.animated_background;
     }
     View = Root.shadowRoot.getElementById("view");
-    View.style.background="none";
   }
 }
 
@@ -533,6 +532,12 @@ function renderBackgroundHTML() {
         Header.insertAdjacentHTML('beforeBegin',ha_style);
       }
 
+      var divView = document.createElement ("script");
+      divView.innerHTML = `
+       getElementById("view").style.backgroundColor="none";
+
+      `;
+      
       var div = document.createElement("div");
       div.id = "background-video";
       div.className = "bg-wrap";
@@ -543,6 +548,7 @@ function renderBackgroundHTML() {
     
       Root.shadowRoot.appendChild(style);
       Root.shadowRoot.appendChild(div);
+      Root.shadowRoot.appendChild(divView);
       View.insertBefore(transparent_body,View.firstChild);
       Previous_Url = state_url;
     }
