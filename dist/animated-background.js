@@ -534,7 +534,7 @@ function renderBackgroundHTML() {
 
       var divView = document.createElement ("script");
       divView.innerHTML = `
-       getElementById("view").style.backgroundColor="none";
+       document.getElementById("view").style.backgroundColor="none";
 
       `;
       
