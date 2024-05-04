@@ -542,7 +542,6 @@ function renderBackgroundHTML() {
     
       Root.shadowRoot.appendChild(style);
       Root.shadowRoot.appendChild(div);
-      Root.shadowRoot.appendChild(divView);
       View.insertBefore(transparent_body,View.firstChild);
       
       View.setAttribute ("style","background=none;");
