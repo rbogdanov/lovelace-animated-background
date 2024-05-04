@@ -544,7 +544,7 @@ function renderBackgroundHTML() {
       Root.shadowRoot.appendChild(div);
       View.insertBefore(transparent_body,View.firstChild);
       
-      View.setAttribute ("style","background=none;");
+      View.setAttribute ("style","background:none;");
       
       Previous_Url = state_url;
     }
