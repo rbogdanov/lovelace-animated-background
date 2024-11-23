@@ -111,6 +111,15 @@ animated_background:
 
     'rainy': "https://cdn.flixel.com/flixel/f0w23bd0enxur5ff0bxz.hd.mp4"
 
+    'lightning':
+      - "https://cdn.flixel.com/flixel/sbk5sc03j7vay52r3e4o.hd.mp4"
+
+    'snowy-rainy':
+      - "https://cdn.flixel.com/flixel/ykgpjn09rt49e8e1qx3b.hd.mp4"
+
+    'snowy':
+      - "https://cdn.flixel.com/flixel/ykgpjn09rt49e8e1qx3b.hd.mp4"
+
 title: Home
 views: ...
 ```
