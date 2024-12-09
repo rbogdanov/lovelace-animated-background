@@ -128,7 +128,7 @@ views: ...
 
 ### Step 1
 
-Make sure you have [HACS](https://github.com/custom-components/hacs) installed. Navigate to the overflow menu and open the "Custom repositories" menu. Copy and paste the [lovelace-animated-background](https://github.com/Nealtron/lovelace-animated-background) github repository URL, and paste it in the Repository field and select "Dashboard" for the Type. Locate the "Lovelace Animated Background" dashboard from the "Available for download section", open and install.
+Make sure you have [HACS](https://github.com/custom-components/hacs) installed. Navigate to the overflow menu and open the "Custom repositories" menu. Copy and paste the [lovelace-animated-background](https://github.com/rbogdanov/lovelace-animated-background) github repository URL, and paste it in the Repository field and select "Dashboard" for the Type. Locate the "Lovelace Animated Background" dashboard from the "Available for download section", open and install.
 
 ### Step 2
 
