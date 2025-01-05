@@ -506,7 +506,12 @@ function renderBackgroundHTML() {
           min-width: 100vw; 
           min-height: 100vh;
           z-index: -10;
-      }`;
+      }
+
+      hui-view-background{
+          background:none;
+      }
+      `;
 
       if (parseInt(current_config.opacity) > 0.0) {
         Opacity = current_config.opacity;
