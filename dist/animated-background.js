@@ -511,6 +511,10 @@ function renderBackgroundHTML() {
       hui-view-background{
           background:none;
       }
+
+      .header{
+           background:none;
+      }
       `;
 
       if (parseInt(current_config.opacity) > 0.0) {
