@@ -534,7 +534,7 @@ function renderBackgroundHTML() {
         var html_element = document.querySelector("html");
         html_element.style.removeProperty ('--app-header-background-color');
 
-        var div_element = document.querySelector("div");
+        var div_element = document.querySelector(".header");
         div_element.style.removeProperty ('--app-header-background-color');
         
         var ha_style = `<style>
