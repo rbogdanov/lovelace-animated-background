@@ -533,7 +533,10 @@ function renderBackgroundHTML() {
       if (current_config.transparent_panel) {
         var html_element = document.querySelector("html");
         html_element.style.removeProperty ('--app-header-background-color');
-      
+
+        var div_element = document.querySelector("div");
+        div_element.style.removeProperty ('--app-header-background-color');
+        
         var ha_style = `<style>
     	    html {
     		--primary-color:initial;
