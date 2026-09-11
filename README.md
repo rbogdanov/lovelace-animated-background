@@ -2,7 +2,7 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 
-Animated video and image backgrounds for Home Assistant Lovelace dashboards, with support for entity-driven state changes, per-view configuration, transparent panels, card opacity, and a built-in visual editor.
+Animated video and image backgrounds for Home Assistant Lovelace dashboards, with support for entity-driven state changes, per-view configuration, transparent panels, and card opacity.
 
 ![Example](https://raw.githubusercontent.com/Villhellm/README_images/master/Animation.gif)
 
@@ -15,7 +15,7 @@ This project builds on the work of several contributors:
 - **[Villhellm](https://github.com/Villhellm/lovelace-animated-background)** — original author. May he rest in peace.
 - **[dreimer1986](https://github.com/dreimer1986/lovelace-animated-background)** — fixes for Home Assistant 2023.04.0 and transparent card mode.
 - **[rbogdanov](https://github.com/rbogdanov/lovelace-animated-background)** — added transparent panel support and card opacity mode.
-- **[imonlinux](https://github.com/imonlinux/lovelace-animated-background)** — fixes for HA 2026.x, layout and CSS stacking context fixes, shadow DOM targeting corrections, group config inheritance fixes, and the visual editor.
+- **[imonlinux](https://github.com/imonlinux/lovelace-animated-background)** — fixes for HA 2026.x, layout and CSS stacking context fixes, shadow DOM targeting corrections, and group config inheritance fixes.
 
 ---
 
@@ -50,52 +50,7 @@ Navigate to **Settings → Dashboards**, then open the **three-dot menu (⋮)** 
 
 ---
 
-## Configure with the visual editor
-
-The plugin ships a visual editor card **in the same file** — no extra install, no second resource. If the background is installed, the editor is already available. It configures the entire `animated_background:` block through a form and writes it back to the dashboard, so you never have to touch YAML unless you want to.
-
-### Adding the editor card to an existing dashboard
-
-1. Open the dashboard and select the **pencil icon** (Edit dashboard).
-2. Select **Add card**, then search for **Animated Background Editor**. (Alternatively choose **Manual** and enter `type: custom:animated-background-editor`.)
-3. Place it on an admin or private view — it is a configuration tool, not a decoration. Any view on the dashboard works; the editor configures the whole dashboard, not the view it sits on.
-4. Select **Done** to leave edit mode.
-5. Configure across the tabs and select **Save**. The background redraws immediately.
-
-### Setting up a brand-new dashboard
-
-1. Go to **Settings → Dashboards → + Add Dashboard**, choose **New dashboard from scratch**, give it a title, then **Create** and open it.
-2. **Take control of the dashboard.** Select the pencil icon; a new dashboard is auto-populated by a strategy and Home Assistant will prompt you to take control. Confirm (choosing to start from the auto-generated cards or an empty dashboard — either is fine).
-   > **This step is required.** Until you take control, the dashboard has no stored configuration for the editor to write to, and saving will not work. The editor detects this and tells you.
-3. Add the editor card as in the steps above.
-4. Configure and save.
-
-> The resource only needs registering once for your whole Home Assistant instance, not per dashboard. If the background already works on one dashboard, the editor card is available on all of them.
-
-### What each tab does
-
-| Tab | What you set there |
-| --- | --- |
-| General | Default background URL(s), tint overlay, card opacity, transparent header, refresh behaviour |
-| Entity & States | The entity that drives the background, and a URL for each of its states |
-| Views | Per-view overrides — inherit, use a group, disable, or set a custom config |
-| Groups | Named reusable configs you can assign to multiple views |
-| Access | Limit the background to specific users or device types |
-| Advanced | Debug logging, user-agent display, and the generated YAML |
-
-### Good to know
-
-- Entering **multiple URLs** — one per line in a URL box — means one is picked at random each refresh.
-- **Saving requires admin.** Non-admin users see the generated YAML instead.
-- **YAML-mode dashboards** cannot be saved from the card; the editor generates the `animated_background:` block plus the view-level assignment lines to paste in.
-- **Copy YAML** always works — useful for sharing a config or keeping one in a repo.
-- The editor **preserves everything else** in the dashboard config; it only touches the `animated_background:` keys.
-- **Stale view entries** (referencing a view path that no longer exists) are flagged so they can be removed.
-- Removing the editor card does not affect the background — the config stays.
-
----
-
-## Configuration Reference
+## Setup
 
 Add the `animated_background:` block at the **root** of your Lovelace dashboard configuration — not inside a view or card. If you are using UI-managed dashboards, access the raw configuration editor via the **pencil icon → three-dot menu → Edit in YAML** on your dashboard.
 
@@ -117,8 +72,14 @@ views: ...
 ```
 
 > Any `mp4`, `webm`, or image URL will work, including local `/local/` paths. Using locally stored videos is strongly recommended — it greatly improves loading times and avoids dependence on external CDNs. Short looping videos ("cinemagraphs") work best.
+> 
+> **See the example configuration below.**
 
-All options go under the `animated_background:` key:
+---
+
+## Configuration Reference
+
+All options go under the `animated_background:` key at the root of your Lovelace dashboard config.
 
 | Option | Type | Description |
 | --- | --- | --- |
@@ -126,16 +87,14 @@ All options go under the `animated_background:` key:
 | `enabled` | bool | Set to `false` to disable the plugin entirely. Default: `true`. |
 | `entity` | string | Home Assistant entity whose state drives background changes. |
 | `state_url` | map | Map of entity states to video or image URLs. Each value can be a single URL or a list. Set a state to `'none'` to disable the background for that state. Required if `entity` is set. |
-| `opacity` | number (1–99) | Makes the view element semi-transparent so the background shows through cards. Requires a theme that sets card backgrounds to transparent or semi-transparent. **Note:** this creates a CSS stacking context — see [Troubleshooting](#troubleshooting-popups-appear-behind-the-background). |
-| `overlay` | map | Optional tint layer drawn over the background media. Takes `color` (any CSS color, default `#000000`) and `opacity` (0–1, default `0.3`). Darkens or tints busy backgrounds so cards and text stay readable. Can be set at the root, group, or view level. |
-| `background` | string | CSS background override for the view behind the header. Defaults to `transparent` when the background is active. Set it to any CSS background value (for example a color) if you do not want the view fully see-through. |
+| `opacity` | number (0–99) | Makes the view element semi-transparent so the background shows through cards. Requires a theme that sets card backgrounds to transparent or semi-transparent. **Note:** this creates a CSS stacking context — see [Troubleshooting](#troubleshooting-popups-appear-behind-the-background). |
 | `transparent_panel` | bool | Makes the top navigation panel/header transparent. Default: `false`. |
 | `views` | list | Per-view configuration overrides. See [View Configuration](#view-configuration). |
 | `groups` | list | Named reusable configurations that views can reference. See [Group Configuration](#group-configuration). |
-| `included_users` | list of strings | Only these users will see the animated background. All others are excluded. See the precedence rules below. |
-| `excluded_users` | list of strings | These users will not see the animated background. Exclusions always win. |
+| `included_users` | list of strings | Only these users will see the animated background. All others are excluded. |
+| `excluded_users` | list of strings | These users will not see the animated background. |
 | `included_devices` | list of strings | Only these device types will show the background. Supported values: `iphone`, `ipad`, `windows`, `macintosh`, `android`. |
-| `excluded_devices` | list of strings | These device types will not show the background. Exclusions always win. |
+| `excluded_devices` | list of strings | These device types will not show the background. |
 | `debug` | bool | Enables detailed console logging. |
 | `display_user_agent` | bool | Shows an alert with your current user agent string. Useful for determining the correct value to use in device include/exclude lists. |
 | `refresh_on_update` | bool | Refreshes the background when the updated state of the weather entity changes even if the value does not. |
@@ -143,12 +102,7 @@ All options go under the `animated_background:` key:
 
 > **Note on `opacity`:** The `opacity` setting makes the entire view container semi-transparent, which only produces a see-through card effect when combined with a theme that sets `--ha-card-background` to a transparent or semi-transparent colour (e.g. `rgba(0,0,0,0.3)`). Without a compatible theme, cards will appear faded but not transparent. Several HACS themes (such as iOS themes) provide this out of the box.
 
-> **Note on root fallback:** `opacity`, `overlay`, `background`, `transparent_panel`, `refresh_interval` and `refresh_on_update` are read from the active view or group config first, and fall back to the root `animated_background:` config when the view or group does not set them. You do not need to repeat them inside each group definition — but you can override them per group or view.
-
-> **Access precedence:** include/exclude lists are evaluated in a fixed order.
-> 1. **Exclusions always win.** A user or device matching any `excluded_users` or `excluded_devices` list (root *or* view/group config) never sees the background, regardless of inclusion lists or `enabled: true`.
-> 2. An explicit `enabled: true` or `enabled: false` on a view or group config applies next. It can override inclusion lists, never exclusions.
-> 3. If any `included_users` or `included_devices` list is configured, the current user or device must match at least one of them to see the background. With no inclusion lists configured, everyone (not excluded by step 1) sees it.
+> **Note on `transparent_panel` and `opacity` with groups:** These settings are always read from the root `animated_background:` config, even when a view is using a group configuration. You do not need to repeat them inside each group definition.
 
 ---
 
@@ -352,22 +306,6 @@ animated_background:
 ```
 
 > `sun.sun` has two states — `above_horizon` (daytime) and `below_horizon` (night) — giving you four possible combinations to map backgrounds to.
-
----
-
-### Tinting a busy background
-
-```yaml
-animated_background:
-  entity: weather.home
-  overlay:
-    color: "#000000"
-    opacity: 0.35
-  state_url:
-    sunny: /local/backgrounds/sunny/hlhff0h8md4ev0kju5be.hd.mp4
-```
-
-> `overlay` tints the background media itself (a layer drawn on top of the video/image), while `opacity` makes the dashboard's cards semi-transparent. They're independent: use `overlay` to darken a bright background for readability, and `opacity` (with a compatible theme) to let the background show through cards.
 
 ---
 
