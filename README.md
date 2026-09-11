@@ -33,7 +33,7 @@ This project builds on the work of several contributors:
 ### Method 2: Manual
 
 1. Copy `animated-background.js` from this repository to `<config directory>/www/animated-background.js` on your Home Assistant instance.
-2. Register the resource — see [Registering the resource](https://claude.ai/chat/5905014c-aa85-4fb7-95c4-3943bd6d8557#registering-the-resource) below.
+2. Register the resource — see **Registering the resource** below.
 
 **Registering the resource**
 
@@ -87,10 +87,10 @@ All options go under the `animated_background:` key at the root of your Lovelace
 | `enabled` | bool | Set to `false` to disable the plugin entirely. Default: `true`. |
 | `entity` | string | Home Assistant entity whose state drives background changes. |
 | `state_url` | map | Map of entity states to video or image URLs. Each value can be a single URL or a list. Set a state to `'none'` to disable the background for that state. Required if `entity` is set. |
-| `opacity` | number (0–99) | Makes the view element semi-transparent so the background shows through cards. Requires a theme that sets card backgrounds to transparent or semi-transparent. **Note:** this creates a CSS stacking context — see [Troubleshooting](https://claude.ai/chat/5905014c-aa85-4fb7-95c4-3943bd6d8557#troubleshooting-popups-appear-behind-the-background). |
+| `opacity` | number (0–99) | Makes the view element semi-transparent so the background shows through cards. Requires a theme that sets card backgrounds to transparent or semi-transparent. **Note:** this creates a CSS stacking context — see [Troubleshooting](#troubleshooting-popups-appear-behind-the-background). |
 | `transparent_panel` | bool | Makes the top navigation panel/header transparent. Default: `false`. |
-| `views` | list | Per-view configuration overrides. See [View Configuration](https://claude.ai/chat/5905014c-aa85-4fb7-95c4-3943bd6d8557#view-configuration). |
-| `groups` | list | Named reusable configurations that views can reference. See [Group Configuration](https://claude.ai/chat/5905014c-aa85-4fb7-95c4-3943bd6d8557#group-configuration). |
+| `views` | list | Per-view configuration overrides. See [View Configuration](#view-configuration). |
+| `groups` | list | Named reusable configurations that views can reference. See [Group Configuration](#group-configuration). |
 | `included_users` | list of strings | Only these users will see the animated background. All others are excluded. |
 | `excluded_users` | list of strings | These users will not see the animated background. |
 | `included_devices` | list of strings | Only these device types will show the background. Supported values: `iphone`, `ipad`, `windows`, `macintosh`, `android`. |
