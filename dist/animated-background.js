@@ -526,7 +526,7 @@ function renderBackgroundHTML() {
           top: 0;
           min-width: 100vw; 
           min-height: 100vh;
-          z-index: -12;
+          z-index: 0 !important;
           pointer-events: none;
       }
 
