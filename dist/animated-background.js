@@ -517,7 +517,9 @@ function renderBackgroundHTML() {
       }
       
       #view {
-          background: none;
+          position: relative !important;
+          z-index: 1 !important;
+          background: none !important;
         }
       
       .bg-wrap{
